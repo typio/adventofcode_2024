@@ -15,14 +15,15 @@ func main() {
         var cols: ([Int], [Int]) = ([], [])
         var sumDifference = 0
         let p1_time: ContinuousClock.Instant.Duration = clock.measure {
-            _ = content.split(separator: "\n", omittingEmptySubsequences: true).map { row in
+            _ = content.components(separatedBy: .newlines).map { row in
                 let pair: [Int] = row.split(separator: "   ", omittingEmptySubsequences: true).map {
                     numberString in
                     Int(numberString)!
                 }
-                cols.0.append(pair[0])
-                cols.1.append(pair[1])
-
+                if pair.count == 2 {
+                    cols.0.append(pair[0])
+                    cols.1.append(pair[1])
+                }
             }
             cols.0.sort()
             cols.1.sort()
@@ -34,21 +35,24 @@ func main() {
         print("Part 1: \(sumDifference), time: \(p1_time)")
 
         var sumOfMatches = 0
-        let unique_col1 = Array(Set(cols.0))
-        let p2_time: ContinuousClock.Instant.Duration = clock.measure {
-            for i in 0..<unique_col1.count {
-                let n1: Int = cols.0[i]
 
-                var occurences: Int = 0
-                for j in 0..<cols.1.count {
-                    let n2: Int = cols.1[j]
-                    if n1 == n2 {
-                        occurences += 1
-                    } else if n2 > n1 {
-                        break
-                    }
+        var unique_col1: [Int] = []
+        for n in cols.0 {
+            if unique_col1.last != n {
+                unique_col1.append(contentsOf: [n])
+            }
+        }
+
+        let p2_time: ContinuousClock.Instant.Duration = clock.measure {
+            var freq: [Int: Int] = [:]
+            for n in cols.1 {
+                freq[n, default: 0] += 1
+            }
+
+            for n in unique_col1 {
+                if let count = freq[n] {
+                    sumOfMatches += n * count
                 }
-                sumOfMatches += n1 * occurences
             }
         }
         print("Part 2: \(sumOfMatches), time: \(p2_time)")
