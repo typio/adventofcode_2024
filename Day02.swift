@@ -1,10 +1,3 @@
-//
-//  Day02.swift
-//  aoc_2024
-//
-//  Created by TH on 12/1/24.
-//
-
 import Foundation
 
 func levelsAreSafe(levels: [Int]) -> Bool {
