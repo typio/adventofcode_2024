@@ -1,10 +1,3 @@
-//
-//  Day01.swift
-//  aoc_2024
-//
-//  Created by TH on 11/30/24.
-//
-
 import Foundation
 
 func main() {
