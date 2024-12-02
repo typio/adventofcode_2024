@@ -2,7 +2,7 @@
 
 > https://adventofcode.com/2024
 
-❄️ It's an Swifty Christmas ❄️&ensp;<sub>**fr dawg**</sub>
+❄️ It's a Swifty Christmas ❄️&ensp;<sub>**fr dawg**</sub>
 
 🕊️🕊️🕊️🕊️🕊️🕊️🕊️</br>
 🎁🎄🎁🎅🔔🎶💃</br>
