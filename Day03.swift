@@ -16,10 +16,9 @@ func main() {
 
         for match in matches {
             let parts = String(match.0).components(separatedBy: ",").map {
-                $0.filter("0123456789".contains)
+                Int($0.filter("0123456789".contains))!
             }
-            sum_of_products +=
-                Int(parts[0])! * Int(parts[1])!
+            sum_of_products += parts[0] * parts[1]
         }
     }
     print("Part 1: \(sum_of_products), time: \(p1_time)")
@@ -41,10 +40,9 @@ func main() {
             } else {
                 if enabled {
                     let parts = match.components(separatedBy: ",").map {
-                        $0.filter("0123456789".contains)
+                        Int($0.filter("0123456789".contains))!
                     }
-
-                    sum_of_products2 += Int(parts[0])! * Int(parts[1])!
+                    sum_of_products2 += parts[0] * parts[1]
                 }
             }
         }
