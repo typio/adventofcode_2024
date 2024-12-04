@@ -1,3 +1,6 @@
+// Part 1: 0.001370583 seconds
+// Part 2: 0.006638125 seconds
+
 import Foundation
 
 func levelsAreSafe(levels: [Int]) -> Bool {
