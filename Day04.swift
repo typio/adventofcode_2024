@@ -1,3 +1,7 @@
+// Setup time: 0.000434625 seconds
+// Part 1: 0.005932 seconds
+// Part 2: 0.005964583 seconds
+
 import Foundation
 
 func main() {
