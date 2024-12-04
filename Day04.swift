@@ -20,7 +20,7 @@ func main() {
     var a: UInt8 = 0
     var s: UInt8 = 0
 
-    let setup_time: ContinuousClock.Instant.Duration = clock.measure {
+    let setup_time = clock.measure {
         content = Array(contentString.lowercased().utf8)
 
         line_length =
@@ -38,7 +38,7 @@ func main() {
     print("Setup time: \(setup_time)")
 
     var answer = 0
-    let p1_time: ContinuousClock.Instant.Duration = clock.measure {
+    let p1_time = clock.measure {
         for (i, c) in content.enumerated() {
             if c == x {
                 // search right
@@ -106,7 +106,7 @@ func main() {
     print("Part 1: \(answer), time: \(p1_time)")
 
     var answer2 = 0
-    let p2_time: ContinuousClock.Instant.Duration = clock.measure {
+    let p2_time = clock.measure {
         for (i, c) in content.enumerated() {
             let isM = c == m
 
