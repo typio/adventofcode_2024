@@ -1,3 +1,6 @@
+// Part 1: 0.008927875 seconds
+// Part 2: 0.009222084 seconds
+
 import Foundation
 
 func main() {
