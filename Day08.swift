@@ -1,4 +1,4 @@
-// Total time: 0.001190041
+// Total time: 0.001190041 seconds
 
 import Foundation
 
