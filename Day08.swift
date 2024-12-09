@@ -1,4 +1,4 @@
-// Total time:
+// Total time: 0.001190041
 
 import Foundation
 
@@ -89,17 +89,17 @@ func main() {
             }
         }
 
-        for (i, line) in lines.enumerated() {
-            var str = ""
-            for (j, char) in line.enumerated() {
-                if antinodes.contains(Coord(x: j, y: i)) {
-                    str += "#"
-                } else {
-                    str += String(char)
-                }
-            }
-            print(str)
-        }
+        // for (i, line) in lines.enumerated() {
+        //     var str = ""
+        //     for (j, char) in line.enumerated() {
+        //         if antinodes.contains(Coord(x: j, y: i)) {
+        //             str += "#"
+        //         } else {
+        //             str += String(char)
+        //         }
+        //     }
+        //     print(str)
+        // }
     }
 
     print("Part 1: \(antinodes.count), Part 2: \(antinodes2.count), time: \(time)")
