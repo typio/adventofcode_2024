@@ -1,4 +1,4 @@
-// Total time: 5.140 seconds
+// Total time: 5.351 seconds
 
 import Foundation
 
@@ -102,6 +102,7 @@ func main() {
         // Part 2
         // size : pos
         var first_empty_dict: [Int: Int] = [:]
+        first_empty_pos = 0
         for (idx, slot) in disk_map2.enumerated() {
             if idx % 2 != 0 && slot.empty_space > 0 && first_empty_dict[slot.empty_space] == nil {
                 first_empty_dict[slot.empty_space] = idx
@@ -129,7 +130,7 @@ func main() {
         }
 
         slot_i = disk_map2.count - 1
-        while slot_i > 0 {
+        while slot_i > first_empty_pos {
             if disk_map2[slot_i].id == nil {
                 slot_i -= 1
                 continue
@@ -189,6 +190,10 @@ func main() {
                     if dest_pos + 1 < first_empty_dict[remainder] ?? Int.max {
                         first_empty_dict[remainder] = dest_pos + 1
                     }
+
+                }
+                first_empty_pos = first_empty_dict.reduce(Int.max) { acc, curr in
+                    min(acc, curr.value)
                 }
             }
 
