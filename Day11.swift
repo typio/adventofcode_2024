@@ -1,4 +1,4 @@
-// Total time: 0.048 seconds
+// Total time: 0.039 seconds
 
 import Foundation
 
@@ -25,7 +25,7 @@ func main() {
             answer = sum
         }
 
-        for _ in 0..<(50) {
+        for _ in 0..<50 {
             temp_stones = step(stones: temp_stones)
             let sum = temp_stones.reduce(0) { acc, curr in
                 acc + curr.value
