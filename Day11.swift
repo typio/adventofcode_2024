@@ -1,4 +1,4 @@
-// Total time: 0.055 seconds
+// Total time: 0.048 seconds
 
 import Foundation
 
@@ -40,14 +40,14 @@ func main() {
 func step(stones: [Double: Int]) -> [Double: Int] {
     var new_stones: [Double: Int] = [:]
     for (stone, count) in stones {
-        let is_even =
-            (log10(stone) + 1).rounded(.down).truncatingRemainder(dividingBy: 2) == 0
+
+        let half_digits = (log10(stone) + 1).rounded(.down) / 2
+        let is_even = half_digits == half_digits.rounded()
 
         if stone == 0 {
             new_stones[1] = (new_stones[1] ?? 0) + count
         } else if is_even {
-            let digits = (log10(stone) + 1).rounded(.down)
-            let divisor = pow(10, digits / 2)
+            let divisor = pow(10, half_digits)
 
             let lhs = (stone / divisor).rounded(.down)
             let rhs = stone.truncatingRemainder(dividingBy: divisor)
