@@ -47,16 +47,13 @@ func step(stones: [Double: Int]) -> [Double: Int] {
             new_stones[1] = (new_stones[1] ?? 0) + count
         } else if is_even {
             let digits = (log10(stone) + 1).rounded(.down)
+            let divisor = pow(10, digits / 2)
 
-            let halfDigits = (digits / 2).rounded(.up)
+            let lhs = (stone / divisor).rounded(.down)
+            let rhs = stone.truncatingRemainder(dividingBy: divisor)
 
-            let divisor = pow(10, halfDigits)
-
-            let left = (stone / divisor).rounded(.down)
-            let right = stone.truncatingRemainder(dividingBy: divisor)
-
-            new_stones[left] = (new_stones[left] ?? 0) + count
-            new_stones[right] = (new_stones[right] ?? 0) + count
+            new_stones[lhs] = (new_stones[lhs] ?? 0) + count
+            new_stones[rhs] = (new_stones[rhs] ?? 0) + count
 
         } else {
             let p = stone * 2024
